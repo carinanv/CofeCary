@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CofeCary - Temos os melhores grãos de café, venha esperimentar!.">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <title>CofeCary</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <!--header-->
+    <header>
+        <nav class="celular">
+            <p><abbr title="119999991"><a href="#">119999991</a></abbr> <abbr title="119555558"><a href="#">119555558</a></abbr></p>
+        </nav>
+
+        <!--Inicio menu-->
+        <nav class="nav">
+            <abbr title="Logo site CofeCary"><a href="/"><img src="imagens/logo-80.png" alt="Logo site CofeCary "></a></abbr>
+            <button class="hamburguer"></button>
+            <ul class="nav-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Cafés</a>
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li class="hover-sub"><a href="#">Tipo de Cafés</a>
+                                <div class="sub-menu-2">
+                                    <ul>
+                                        <li><a href="#">Americano</a></li>
+                                        <li><a href="#">Capucccino</a></li>
+                                        <li><a href="#">Espreso</a></li>
+                                        <li><a href="#">Latte</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="hover-sub"><a href="#">Nossas Misturas</a>
+                                <div class="sub-menu-2">
+                                    <ul>
+                                        <li><a href="#">Blend Espresso</a></li>
+                                        <li><a href="#">Café de origem única</a></li>
+                                        <li><a href="#">Café Gourmet</a></li>
+                                        <li><a href="#">Amarelas</a></li>
+                                        <li><a href="#">Mistas</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Serviços</a>
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li class="hover-sub"><a href="#">Métodos de Preparação</a>
+                                <div class="sub-menu-2">
+                                    <ul>
+                                        <li><a href="#">Cafeteira Italiana</a></li>
+                                        <li><a href="#">Prensa Francesa</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="hover-sub"><a href="#">Assinaturas e Kit</a>
+                                <div class="sub-menu-2">
+                                    <ul>
+                                        <li><a href="#">Assinatura Mensal</a></li>
+                                        <li><a href="#">Kit de Introdução ao Café</a></li>
+                                        <li><a href="#">Presentes e Kits Especiais</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Empresa</a>
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="#">Nossa História</a></li>
+                            <li><a href="#">Compromisso e Qualidade</a></li>
+                            <li><a href="#">Nossos Fornecedores</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Contato</a>
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="#">Fale Conosco</a></li>
+                            <li><a href="#">Localização</a></li>
+                            <li><a href="#">Horário de Funcionamento</a></li>
+                        </ul>
+                    </div></li>
+            </ul>
+        </nav>
+    </header>  
+
+
+    <!-- Banner -->
+    <div class="linha">
+        <div class="col-2">
+            <h1>Venha Conhecer a nossa Cafeteria.<br> Aproveite o nosso Café!</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit, amet consectetur adipisicing elit.<q>
+                <mark> Um bom café transforma pequenos momentos em grandes inspirações.</mark>
+            </q> Voluptatem odio fugiat laudantium voluptatibus natus, unde ex at porro recusandae deleniti quisquam! Pariatur est non error sapiente dolore, deleniti neque nulla.</p>
+            <p><abbr title="Clique aqui, obtenha mais informações"><a href="#" class="btn animate-btn">Mais Informações &#8594</a></abbr></p>
+        </div>
+        <div class="col-2">
+            <img src="imagens/cafes-400.jpg" alt="Flores amarelas, lindas.">
+        </div>
+    </div>
+    <!--fim texto do banner-->
+
+      <!--inicio slider-->
+      <div class="slider">
+        <button class="button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="slides">
+            <div class="slide"><img src="imagens/slide0-800.jpg" alt="Slide 1"></div>
+            <div class="slide"><img src="imagens/slide1-800.jpg" alt="Slide 2"></div>
+            <div class="slide"><img src="imagens/slide2-800.jpg" alt="Slide 3"></div>
+        </div>
+        <button class="button next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    <!--fim slider-->
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function moveSlide(step) {
+            showSlide(currentSlide + step);
+        }
+
+        // Inicializa o slide automaticamente
+        setInterval(() => moveSlide(1), 3000); // Altere o intervalo conforme necessário
+
+        // Exibe o slide inicial
+        showSlide(currentSlide);
+    </script><br>
+
+
+    <!--inicio flexbox-->
+    <h1>Destaques</h1>
+    <section class="flex">
+        <div>
+            <img src="imagens/cop-400.jpg" alt="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita veniam architecto vel ab vero nobis recusandae similique. Sed sapiente odio ipsum explicabo magnam ut. Asperiores laborum quos illo est corporis. Cafés <abbr title="Veja a Imagem"><a href="imagens/cop-400.jpg" class="btn animate-btn">Minha Imagem &#8594</a></abbr></p>
+        </div>
+        <div>
+            <img src="imagens/copo-400.jpg" alt="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita veniam architecto vel ab vero nobis recusandae similique. Sed sapiente odio ipsum explicabo magnam ut. Asperiores laborum quos illo est corporis. Cafés <abbr title="Veja a Imagem"><a href="imagens/copo-400.jpg" class="btn animate-btn"> Minha Imagem &#8594</a></abbr></p>
+        </div>
+        <div>
+            <img src="imagens/amarelo-400.jpg" alt="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita veniam architecto vel ab vero nobis recusandae similique. Sed sapiente odio ipsum explicabo magnam ut. Asperiores laborum quos illo est corporis. Cafés <abbr title="Veja a Imagem"><a href="imagens/amarelo-400.jpg" class="btn animate-btn">Minha Imagem &#8594</a></abbr></p>
+        </div>
+        <div>
+            <img src="imagens/cafes-400.jpg" alt="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita veniam architecto vel ab vero nobis recusandae similique. Sed sapiente odio ipsum explicabo magnam ut. Asperiores laborum quos illo est corporis. Cafés <abbr title="Veja a Imagem"><a href="imagens/cafes-400.jpg" class="btn animate-btn">Minha Imagem &#8594</a></abbr></p>
+        </div>
+    </section>
+    <!--fim flexbox-->
+
+
+
+<!--inicio rodape-->
+<footer class="rodape">
+
+    <div class="container">
+        <div class="linha">
+    
+            <div class="rodape-col-1">
+                <h2>Venha conhecer a nossa Cafeteria! </h2>
+                <p> Seja nosso cliente e conheça os nossos diversos tipos de Café.</p>
+            </div>
+    
+            <div class="rodape-col-2">
+
+                <br><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque ratione in perspiciatis at quasi placeat, repellendus officiis, distinctio perferendis sed, ut totam error! Ipsam nulla nam cupiditate maxime repudiandae eos..<br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae assumenda facere exercitationem laborum rerum cumque recusandae repellat, commodi at. Nesciunt animi sit facere laborum error quia ea doloribus corporis delectus?</p>
+            </div>
+    
+            <div class="rodape-col-3">
+                <h3>Mais Informaçoes</h3>
+                <ul>
+                    <li>Cupons</li>
+                    <li>Blog</li>
+                    <li>Politica de privacidade</li>
+                    <li>Contatos</li>
+                </ul>
+            </div>
+    
+            <div class="rodape-col-4">
+                <h3>Redes Sociais</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Instagram</li>
+                    <li>Twitter</li>
+                </ul>
+            </div>
+    
+        </div>
+        <hr>
+        <p class="direitos">
+            &#169;Todos os direitos reservados a CofeCary.com.br ano 2024</p>
+    </div>
+    
+    </footer>
+    
+    <!--fim rodape-->
+        
+</body>
+
+</html>
+
